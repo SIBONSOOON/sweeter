@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration</title>
+    <link
+      rel="shortcut icon"
+      href="{{ url_for('static', filename='favico.ico') }}"
+      type="image/x-icon"
+    />
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='favico.ico') }}"
+      type="image/x-icon"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="static/style.css" />
+    <script>
+      function register() {
+        $.ajax({
+          type: "POST",
+          url: "/api/register",
+          data: {
+            id_give: $("#userid").val(),
+            pw_give: $("#userpw").val(),
+            nickname_give: $("#usernick").val(),
+          },
+          success: function (response) {
+            if (response["result"] === "success") {
+              alert("User registration complete!");
+              window.location.href = "/login";
+            } else {
+              alert(response["msg"]);
+            }
+          },
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-danger fixed-top">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/login"
+                >Login</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="banner" onclick="window.location.href='/';"></div>
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <!-- Menambahkan row dan justify-content-center untuk mengatur tata letak ke tengah -->
+        <div class="col-md-6">
+          <!-- Menggunakan col-md-6 agar form memiliki lebar yang sesuai pada perangkat berukuran sedang (medium) -->
+          <h2 class="mb-4">User Registration</h2>
+          <form>
+            <div class="mb-3">
+              <label for="userid" class="form-label">ID</label>
+              <input
+                type="text"
+                class="form-control"
+                id="userid"
+                placeholder="Enter your ID"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="userpw" class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="userpw"
+                placeholder="Enter your password"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="usernick" class="form-label">Nickname</label>
+              <input
+                type="text"
+                class="form-control"
+                id="usernick"
+                placeholder="Enter your nickname"
+              />
+            </div>
+            <button type="button" class="btn btn-primary" onclick="register()">
+              Register
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

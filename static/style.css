@@ -1,0 +1,73 @@
+body {
+  background-color: rgb(255, 23, 58);
+  min-height: 100vh;
+}
+
+.section {
+  padding: 1rem 1.5rem;
+  max-width: 750px;
+  margin: auto;
+}
+
+.title {
+  font-weight: 800;
+  font-size: 5rem;
+}
+
+.subtitle {
+  font-size: 2rem;
+}
+
+.is-sparta {
+  color: #e8344e !important;
+}
+.button.is-sparta {
+  background-color: #e8344e;
+  border-color: transparent;
+  color: #fff !important;
+}
+
+.button.is-sparta.is-outlined {
+  background-color: transparent;
+  border-color: #e8344e;
+  color: #e8344e !important;
+}
+
+.help {
+  color: gray;
+}
+.modal-content {
+  width: 600px;
+  max-width: 80%;
+}
+
+input::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+.image img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.profile-image {
+  max-width: 96px; /* Lebar maksimum gambar */
+  max-height: 96px; /* Tinggi maksimum gambar */
+  width: auto; /* Biarkan lebar sesuai proporsi */
+  height: auto; /* Biarkan tinggi sesuai proporsi */
+  border-radius: 50%; /* Membuat gambar lingkaran */
+  display: block; /* Menjadikan gambar sebagai blok */
+  margin: 0 auto; /* Menengahkan gambar */
+}
+.media {
+  display: flex;
+  align-items: flex-start; /* Meletakkan gambar di atas teks */
+}
+
+.media-left {
+  margin-right: 10px; /* Jarak antara gambar dan teks */
+}
+
+.profile {
+  margin-top: 20px; /* Mengatur jarak antara gambar dan teks */
+}
